@@ -35,7 +35,7 @@ body {
 @layer components {
   .main-grid {
     display: grid;
-    grid-template-columns: [breakout-start] 2rem [main] 1fr [breakout-end] 2rem;
+    grid-template-columns: [breakout-start] 2rem [main-start] 1fr [main-end] 2rem [breakout-end];
   }
 
   .main-grid-main {
