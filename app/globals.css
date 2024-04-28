@@ -31,3 +31,18 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .main-grid {
+    display: grid;
+    grid-template-columns: [breakout-start] 2rem [main] 1fr [breakout-end] 2rem;
+  }
+
+  .main-grid-main {
+    grid-column: main;
+  }
+
+  .main-grid-breakout {
+    grid-column: breakout;
+  }
+}
