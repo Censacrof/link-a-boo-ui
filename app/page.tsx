@@ -1,5 +1,6 @@
 import Image from "next/image";
 import logo from "../public/linkaboo-logo.jpeg";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
@@ -11,9 +12,7 @@ export default function Home() {
             placeholder="https://foo.bar.com/baz"
             className="h-6 rounded border border-solid border-gray-950 px-2"
           />
-          <button className="h-8 rounded bg-gray-300 px-2 hover:bg-gray-200 active:bg-gray-100 ">
-            Make it short!
-          </button>
+          <Button>Make it short!</Button>
         </div>
       </div>
     </div>
