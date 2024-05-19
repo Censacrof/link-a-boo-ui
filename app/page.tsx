@@ -1,7 +1,7 @@
-import Button from "./components/Button";
-import FormControl from "./components/FormControl/FormControl";
-import FormControlLabel from "./components/FormControl/FormControlLabel";
-import Input from "./components/Input";
+import Button from "../components/Button";
+import FormControl from "../components/FormControl/FormControl";
+import FormControlLabel from "../components/FormControl/FormControlLabel";
+import Input from "../components/Input";
 
 export default function Page() {
   return (
