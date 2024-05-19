@@ -30,7 +30,7 @@ export default forwardRef<HTMLDivElement, DivProps>(function Div(
   return (
     <FormControlContext.Provider value={value}>
       <div
-        className={clsx("flex flex-col gap-2", className)}
+        className={clsx("flex flex-col gap-1", className)}
         {...props}
         ref={ref}
       />
