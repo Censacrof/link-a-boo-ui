@@ -16,6 +16,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+				if (localStorage.colorMode === 'dark' || (!('colorMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				  document.documentElement.classList.add('dark')
+				} else {
+				  document.documentElement.classList.remove('dark')
+				}
+				
+				// Whenever the user explicitly chooses light mode
+				localStorage.colorMode = 'light'
+				
+				// Whenever the user explicitly chooses dark mode
+				localStorage.colorMode = 'dark'
+				
+				// Whenever the user explicitly chooses to respect the OS preference
+				localStorage.removeItem('colorMode')
+			`,
+          }}
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
