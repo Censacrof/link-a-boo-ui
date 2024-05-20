@@ -16,7 +16,7 @@ export default forwardRef<HTMLInputElement, InputProps>(function Input(
       id={formControl?.id}
       required={!formControl?.isOptional}
       className={clsx(
-        "h-8 rounded border border-solid border-gray-950 px-2",
+        "h-8 rounded border border-solid border-gray-950 bg-gray-50 px-2 text-gray-950 placeholder:text-opacity-60",
         className,
       )}
       {...props}
