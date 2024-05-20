@@ -1,22 +1,41 @@
 "use client";
 
-import clsx from "clsx";
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { colorModeValues, useColorMode } from "@/common/colorMode";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useCallback, useMemo } from "react";
+import IconButton from "./IconButton";
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export default function ColorModeSelect() {
+  const { colorMode, setColorMode } = useColorMode();
 
-export default forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { className, ...props },
-  ref,
-) {
+  const icon = useMemo(() => {
+    if (colorMode === "dark") {
+      return faMoon;
+    }
+
+    if (colorMode === "light") {
+      return faSun;
+    }
+
+    return faCircleHalfStroke;
+  }, [colorMode]);
+
+  const handleClick = useCallback(() => {
+    const nextColorMode =
+      colorModeValues[
+        (colorModeValues.indexOf(colorMode) + 1) % colorModeValues.length
+      ];
+
+    setColorMode(nextColorMode);
+  }, [colorMode, setColorMode]);
+
   return (
-    <button
-      className={clsx(
-        "h-10 bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-600",
-        className,
-      )}
-      {...props}
-      ref={ref}
+    <IconButton
+      className="aspect-square"
+      icon={<FontAwesomeIcon icon={icon} />}
+      onClick={handleClick}
     />
   );
-});
+}

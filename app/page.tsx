@@ -1,3 +1,4 @@
+import ColorModeSelect from "@/components/ColorModeSelect";
 import Button from "../components/Button";
 import FormControl from "../components/FormControl/FormControl";
 import FormControlLabel from "../components/FormControl/FormControlLabel";
@@ -19,7 +20,7 @@ function Header() {
   return (
     <div className="flex h-20 items-center gap-2 px-4">
       <Spacer />
-      header
+      <ColorModeSelect />
     </div>
   );
 }
