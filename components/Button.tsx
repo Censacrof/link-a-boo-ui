@@ -12,7 +12,7 @@ export default forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   return (
     <button
       className={clsx(
-        "h-10 bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-600",
+        "h-10 bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-600 disabled:opacity-90",
         className,
       )}
       {...props}
