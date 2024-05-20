@@ -22,24 +22,31 @@ const ColorModeContext = createContext<ColorModeContextValue | undefined>(
 
 export type ColorModeProviderProps = { children?: ReactNode };
 export function ColorModeProvider({ children }: ColorModeProviderProps) {
-  const [colorModeState, setColorModeState] =
-    useState<ColorMode>(getColorMode());
+  const [colorModeState, setColorModeState] = useState<ColorMode>("system");
+
+  useEffect(() => {
+    setColorModeState(getColorMode());
+  }, []);
 
   const setColorMode = useCallback((colorMode: ColorMode) => {
     if (colorMode === "dark") {
+      document.documentElement.classList.remove("light");
       document.documentElement.classList.add("dark");
       window.localStorage.colorMode = "dark";
       setColorModeState("dark");
       return;
     }
 
-    document.documentElement.classList.remove("dark");
     if (colorMode === "light") {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
       window.localStorage.colorMode = "light";
       setColorModeState("light");
       return;
     }
 
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.remove("dark");
     window.localStorage.removeItem("colorMode");
     setColorModeState("system");
   }, []);
@@ -68,15 +75,16 @@ export function ColorModeProvider({ children }: ColorModeProviderProps) {
 }
 
 export function getColorMode(): ColorMode {
-  if (!("colorMode" in window.localStorage)) {
+  const colorMode = window.localStorage.getItem("colorMode");
+  if (!colorMode) {
     return "system";
   }
 
-  if (window.localStorage.colorMode === "dark") {
+  if (colorMode === "dark") {
     return "dark";
   }
 
-  if (window.localStorage.colorMode === "light") {
+  if (colorMode === "light") {
     return "light";
   }
 

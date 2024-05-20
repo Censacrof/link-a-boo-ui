@@ -11,7 +11,7 @@ export type IconButtonProps = Omit<ButtonProps, "children"> & {
 export default forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton({ className, icon, ...props }, ref) {
     return (
-      <Button className={clsx(className)} {...props} ref={ref}>
+      <Button className={clsx("rounded-full", className)} {...props} ref={ref}>
         {icon}
       </Button>
     );

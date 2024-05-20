@@ -8,10 +8,15 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light) {
     --foreground: theme("colors.gray.50");
     --background: theme("colors.gray.900");
   }
+}
+
+:root.dark {
+  --foreground: theme("colors.gray.50");
+  --background: theme("colors.gray.900");
 }
 
 body {

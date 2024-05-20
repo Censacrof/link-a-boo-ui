@@ -1,8 +1,11 @@
 "use client";
 
 import { colorModeValues, useColorMode } from "@/common/colorMode";
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
-import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleHalfStroke,
+  faMoon,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCallback, useMemo } from "react";
 import IconButton from "./IconButton";
