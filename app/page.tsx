@@ -1,12 +1,8 @@
-import dynamic from "next/dynamic";
+import ColorModeSelect from "@/components/ColorModeSelect/ColorModeSelect";
 import Button from "../components/Button";
 import FormControl from "../components/FormControl/FormControl";
 import FormControlLabel from "../components/FormControl/FormControlLabel";
 import Input from "../components/Input";
-
-const ColorModeSelect = dynamic(() => import("@/components/ColorModeSelect"), {
-  ssr: false,
-});
 
 export default function Page() {
   return (

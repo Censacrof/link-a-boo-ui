@@ -7,10 +7,11 @@ import {
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
 import { useCallback, useMemo } from "react";
-import IconButton from "./IconButton";
+import IconButton, { IconButtonProps } from "../IconButton";
 
-export default function ColorModeSelect() {
+export default function ColorModeSelectInner() {
   const { colorMode, setColorMode } = useColorMode();
 
   const icon = useMemo(() => {
@@ -41,4 +42,11 @@ export default function ColorModeSelect() {
       onClick={handleClick}
     />
   );
+}
+
+export function ColorModeSelectButton({
+  className,
+  ...props
+}: IconButtonProps) {
+  return <IconButton className={clsx(className)} {...props} />;
 }
